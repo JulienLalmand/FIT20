@@ -42,5 +42,6 @@ public interface Fit20Service {
     public Beschikbaarheid voegBeschikbaarheidToe(String datum, int fitnesser, int trainer);
     
     public int getTrainerID(String accountNaam);
+    public double berekenPrijs(int uur, String locatie);
 
 }

@@ -11,15 +11,7 @@ import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -40,6 +32,19 @@ import fit20config.Fit20SbApplication;
 @WebAppConfiguration
 public class Fit20SbApplicationTests {
 
+	
+
+	@Test
+	public void coverageTesten(){
+		Fit20ServiceImpl fit20 = new Fit20ServiceImpl();
+		assertEquals(200.00, fit20.berekenPrijs(15, "Brussel"),0.00);
+		assertEquals(225.00, fit20.berekenPrijs(17, "Brussel"),0.00);
+		assertEquals(150.00, fit20.berekenPrijs(15, "Aalst"),0.00);
+		assertEquals(175.00, fit20.berekenPrijs(17, "Aalst"),0.00);
+	}
+	
+	
+	
 	@Test
 	public void beschikbaarheidInstellen() {
 		Beschikbaarheid b;
@@ -70,7 +75,7 @@ public class Fit20SbApplicationTests {
 	public void heeftTrainingsslotEenLocatie(){
 		Fit20ServiceImpl fit20 = new Fit20ServiceImpl();
 		TrainingSlot t = new TrainingSlot("26/10/2016", 1);
-		assertThat(t.getLocatie == true );
+		//assertThat(t.getLocatie == true );
 		// Methode is niet aanwezig 
 	}
 	@Test
@@ -90,5 +95,15 @@ public class Fit20SbApplicationTests {
 		assertThat(fit20.geefAlleTrainingSlotsTrainer(1).contains(t));
 		
 	}
+	
+	@Test
+	public void stressTesten(){
+		for (int i = 0; i < 1000000; i++) {
+		
+			Fit20ServiceImpl fit20 = new Fit20ServiceImpl();
+			fit20.voegPersoonToe("Thibault", "Lesuisse", "TLesuisse", "Lesuisse.be", "Trainer", "Trainer", "123456");
+		}
+	}
+	
 	
 }

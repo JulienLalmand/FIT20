@@ -2,9 +2,7 @@ package be.odisee.fit20.service;
 
 import be.odisee.fit20.dao.*;
 import be.odisee.fit20.domain.*;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.*;
@@ -114,6 +112,30 @@ public class Fit20ServiceImpl implements Fit20Service {
 	@Override
 	public void voegTrainingSlotToe(TrainingSlot t) {
 		this.voegTrainingSlotToe(t.getDatum(), t.getId());
+	}
+	@Override
+	public double berekenPrijs(int uur, String locatie) {
+		if(uur <= 16){
+			if(locatie== "Aalst"){
+			return 150.00;
+		}else if(locatie == "Brussel"){
+			return 200.00;
+		}
+		else return 0;
+			}
+		else if(uur > 16){
+			if(locatie== "Aalst"){
+				return 175.00;
+			}else if(locatie == "Brussel"){
+				return 225.00;
+			}
+			else return 0;
+		}
+		
+		else return 0;
+
+
+		
 	}
     
 }
