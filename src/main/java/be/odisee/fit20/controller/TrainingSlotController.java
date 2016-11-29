@@ -158,7 +158,8 @@ public class TrainingSlotController {
         TrainingSlot toegevoegdTrainingSlot = fit20Service.voegTrainingSlotToe(trainingSlot.getDatum(),
         																	huidigeUserID);
         
-        return "redirect:trainingSlotOverzicht.html?naam="+huidigeUser;
+        //return "redirect:trainingSlotOverzicht.html?naam="+huidigeUser;
+        return "redirect:trainingSlotDetailTrainer.html?id=" + toegevoegdTrainingSlot.getId();
     }
   
 

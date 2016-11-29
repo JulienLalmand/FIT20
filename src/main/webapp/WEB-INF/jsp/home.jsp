@@ -13,9 +13,9 @@
 	    	
 	    	<c:url var="url" value="/trainingSlotOverzicht.html" />
 	    	<form action="${url}" commandName="detrainer">
-				Accountnaam: <input type="text" name="naam"><br />
-				Wachtwoord: <input type="text" name="wachtwoord"/>
-				<input type="submit" value="Log in" />
+				Accountnaam: <input id="username" type="text" name="naam"><br />
+				Wachtwoord: <input id="password" type="text" name="wachtwoord"/>
+				<input id="submit" type="submit" value="Log in" />
 			</form>
 			
 			
